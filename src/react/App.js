@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { channels } from '../shared/constants';
+import { BrowserRouter as Router } from "react-router-dom";
+import 'antd/dist/antd.css';
+import BaseRouter from "./routes";
+import CustomGrid from './containers/CustomGrid';
+import CustomTable from './containers/CustomTable';
+import CustomLayout from './containers/Layout';
+import {connect} from 'react-redux'
 const { ipcRenderer } = window; 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appName: '',
-      appVersion: '',
+      appName: 'F&N app',
+      appVersion: '4.89',
     }
     ipcRenderer.send(channels.APP_INFO);
     ipcRenderer.on(channels.APP_INFO, (event, arg) => {
@@ -22,14 +29,13 @@ class App extends Component {
   render() {
     const { appName, appVersion } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>{appName} version {appVersion}</p>
-        </header>
-      </div>
-    );
+      <Router>
+        <CustomLayout {...this.props}>
+          <BaseRouter />
+      </CustomLayout>
+     </Router>
+  );
   }
 }
 
-export default App;
+export default connect()(App);

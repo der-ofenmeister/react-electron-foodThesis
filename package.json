@@ -1,19 +1,27 @@
 {
   "name": "electron-cra-example",
   "version": "0.1.0",
-  "productName": "Electron Create React App Example",
+  "productName": "Food and Nutrition Dashboard",
   "main": "electron/main.js",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "antd": "^4.3.5",
+    "axios": "^0.19.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.0.1",
+    "recharts": "^1.8.5",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "homepage": "./",
   "scripts": {
-    "start": "export BROWSER=none && react-scripts start",
+    "start": "set BROWSER=none && react-scripts start",
     "start-win": "set BROWSER=none && react-scripts start",
-    "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "start-electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
     "start-electron-win": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
     "clean": "rm -rf build dist",
     "clean-win": "rmdir build /S /Q & rmdir dist/S /Q",
@@ -33,7 +41,7 @@
     "publish": {
       "provider": "github",
       "repo": "electron-cra-example",
-      "owner": "johndyer24"
+      "owner": "der-ofenmeister"
     }
   },
   "eslintConfig": {
@@ -46,7 +54,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "electron": "^5.0.7",
-    "electron-builder": "^21.1.1"
+    "electron": "^5.0.13",
+    "electron-builder": "^21.2.0"
   }
 }
